@@ -4,6 +4,7 @@
   "main": "main.js",
   "license": "MIT",
   "author": "Potter<aa4790139@gmail.com>",
+  "repository": "https://github.com/yxw007/electron_app.git",
   "description": "electron learn demo",
   "scripts": {
     "dev": "electron .",
