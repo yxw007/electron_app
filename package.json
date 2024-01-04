@@ -2,11 +2,34 @@
   "name": "my-electron-app",
   "version": "1.0.0",
   "main": "main.js",
+  "author": "Potter<aa4790139@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "electron ."
+    "dev": "electron .",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.my.electron.app",
+    "productName": "my-electron-app",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "yxw007",
+        "repo": "electron_app"
+      }
+    ],
+    "target": "NSIS",
+    "directories": {
+      "output": "build"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
   },
   "devDependencies": {
-    "electron": "^28.0.0"
-  }
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "dependencies": {}
 }
