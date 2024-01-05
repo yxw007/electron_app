@@ -1,6 +1,9 @@
 const information = document.getElementById("info");
 information.innerText = `This app is using Chrome (v${versions.chrome()}), Node.js (v${versions.node()}), and Electron (v${versions.electron()})`;
 
+let version = window.location.hash.substring(1);
+document.getElementById("version").innerText = version;
+
 const func = async () => {
 	//! 渲染进程，调用主进程方法
 	const response = await window.versions.ping();
@@ -14,4 +17,11 @@ window.electronAPI.sendMessageToMain("Hello from the renderer process!");
 //! 2.渲染进程接收到主进程的消息
 window.electronAPI.receiveMessageFromMain((message) => {
 	console.log(`Received message from main process: ${message}`);
+});
+//! 3.渲染进程接收到主进程的更新消息
+var container = document.getElementById("messages");
+window.electronAPI.receiveUpdateMessageFromMain((message) => {
+	var message = document.createElement("div");
+	message.innerHTML = text;
+	container.appendChild(message);
 });

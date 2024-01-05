@@ -19,4 +19,9 @@ contextBridge.exposeInMainWorld("electronAPI", {
 			callback(message);
 		});
 	},
+	receiveUpdateMessageFromMain: (callback) => {
+		ipcRenderer.on("message", (event, message) => {
+			callback(message);
+		});
+	},
 });
