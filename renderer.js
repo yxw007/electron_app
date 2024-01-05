@@ -19,7 +19,7 @@ window.electronAPI.receiveMessageFromMain((message) => {
 	console.log(`Received message from main process: ${message}`);
 });
 //! 3.渲染进程接收到主进程的更新消息
-var container = document.getElementById("messages");
+var container = document.getElementById("message");
 window.electronAPI.receiveUpdateMessageFromMain((message) => {
 	var message = document.createElement("div");
 	message.innerHTML = text;
