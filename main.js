@@ -54,9 +54,12 @@ autoUpdater.on("update-downloaded", (info) => {
 	sendStatusToWindow("Update downloaded");
 });
 
-app.whenReady().then(() => {
+/* app.on("ready", function () {
 	autoUpdater.checkForUpdatesAndNotify();
+	console.log("app ready: checkForUpdatesAndNotify");
+}); */
 
+app.whenReady().then(() => {
 	//! 主进程，处理渲染进程的消息
 	ipcMain.handle("ping", () => {
 		return `I'm ipcMain`;
@@ -77,6 +80,11 @@ app.whenReady().then(() => {
 			createWindow();
 		}
 	});
+});
+
+app.whenReady().then(() => {
+	autoUpdater.checkForUpdatesAndNotify();
+	console.log("app ready: checkForUpdatesAndNotify");
 });
 
 app.on("window-all-closed", () => {
