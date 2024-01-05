@@ -55,6 +55,8 @@ autoUpdater.on("update-downloaded", (info) => {
 });
 
 app.whenReady().then(() => {
+	autoUpdater.checkForUpdatesAndNotify();
+
 	//! 主进程，处理渲染进程的消息
 	ipcMain.handle("ping", () => {
 		return `I'm ipcMain`;
