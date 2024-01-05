@@ -52,12 +52,9 @@ autoUpdater.on("download-progress", (progressObj) => {
 });
 autoUpdater.on("update-downloaded", (info) => {
 	sendStatusToWindow("Update downloaded");
+	//! 下载完后立即更新
+	autoUpdater.quitAndInstall();
 });
-
-/* app.on("ready", function () {
-	autoUpdater.checkForUpdatesAndNotify();
-	console.log("app ready: checkForUpdatesAndNotify");
-}); */
 
 app.whenReady().then(() => {
 	//! 主进程，处理渲染进程的消息
