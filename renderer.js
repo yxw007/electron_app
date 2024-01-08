@@ -23,6 +23,6 @@ window.electronAPI.receiveUpdateMessageFromMain((message) => {
 	console.log(`receiveUpdateMessageFromMain: ${message}`);
 	var container = document.getElementById("message");
 	var message = document.createElement("div");
-	message.innerHTML = text;
+	message.innerHTML = message;
 	container.appendChild(message);
 });
