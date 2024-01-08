@@ -23,7 +23,7 @@ const createWindow = () => {
 
 function sendStatusToWindow(text) {
 	log.info(text);
-	win.webContents.postMessage("message", { message: text });
+	win.webContents.send("message", { message: text });
 }
 
 autoUpdater.on("checking-for-update", () => {

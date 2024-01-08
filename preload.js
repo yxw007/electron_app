@@ -21,7 +21,9 @@ contextBridge.exposeInMainWorld("electronAPI", {
 	},
 	receiveUpdateMessageFromMain: (callback) => {
 		ipcRenderer.on("message", (event, message) => {
+			console.log("receiveUpdateMessageFromMain:", message);
 			callback(message);
+			console.log("receiveUpdateMessageFromMain:", callback);
 		});
 	},
 });
