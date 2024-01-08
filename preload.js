@@ -22,7 +22,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
 	receiveUpdateMessageFromMain: (callback) => {
 		ipcRenderer.on("message", (event, message) => {
 			console.log("receiveUpdateMessageFromMain:", message);
-			callback(message);
+			callback(message.message);
 			console.log("receiveUpdateMessageFromMain:", callback);
 		});
 	},
